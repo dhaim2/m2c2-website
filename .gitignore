@@ -1,0 +1,15 @@
+# OS / Dropbox junk
+desktop.ini
+Thumbs.db
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+
+# Local agent tooling
+.claude/
+
+# Original documents (kept in Dropbox only — never version-controlled or published;
+# some contain personal details)
+source/
