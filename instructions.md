@@ -11,6 +11,9 @@ workshops.html      Workshops (CFP + past workshops)
 network.html        Network (Organizers / Participants / Junior Fellows tabs)
 css/style.css       Theme (colors, fonts, layout)
 js/site.js          Tab switching on the Network page (nothing else)
+css/fonts.css       @font-face rules for the self-hosted fonts in assets/fonts/
+404.html · robots.txt · .nojekyll   Hosting extras (copied by package.sh)
+package.sh          Builds dist/ + a dated zip of just the deployable files
 data/participants.csv   Participant database — single source of truth for people
 build.py            Bakes the CSV into network.html
 assets/             Logo mark, full logo, favicon
@@ -123,9 +126,15 @@ Conventions:
 ## Deploying
 
 The site is static, so any static host works as-is (GitHub Pages, Netlify, university
-hosting). Only `*.html`, `css/`, `js/`, and `assets/` are needed to serve it. The
-`source/` folder is untracked, so deploying from the git repo automatically keeps the
-original documents out of the published site.
+hosting). Run `./package.sh`: it rebuilds `network.html`, copies only the deployable
+files into `dist/` (the four HTML pages, `css/`, `js/`, `assets/`, `programs/`,
+`robots.txt`, `.nojekyll`) and zips them as `m2c2-site-<date>.zip`. Upload the contents
+of `dist/` (or unzip the archive) to the host's web root. Nothing else is needed: fonts are
+self-hosted in `assets/fonts/` (no Google Fonts call at runtime), all paths are relative,
+and `404.html` is the not-found page (most hosts pick it up by name; GitHub Pages does).
+The `source/` folder, `data/`, `build.py` and the docs never go up.
+
+Preview while unhosted: https://dhaim2.github.io/m2c2-website/ (GitHub Pages from this repo).
 
 ## Reactivating the Call for Proposals
 

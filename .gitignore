@@ -13,3 +13,7 @@ __pycache__/
 # Original documents (kept in Dropbox only — never version-controlled or published;
 # some contain personal details)
 source/
+
+# Build output (package.sh)
+dist/
+m2c2-site-*.zip

@@ -34,7 +34,8 @@ def load_people() -> list[dict]:
 def linked_name(p: dict, bold: bool = False) -> str:
     name = html.escape(p["name"])
     if p["website"]:
-        return f'<a href="{html.escape(p["website"])}">{name}</a>'
+        return (f'<a class="site-link" href="{html.escape(p["website"])}" target="_blank" rel="noopener">'
+                f'{name}<span class="ext" aria-hidden="true">↗</span></a>')
     return f"<b>{name}</b>" if bold else name
 
 
@@ -63,10 +64,14 @@ def then_line(f: dict) -> str:
 def fellow_card(f: dict) -> str:
     """Photo (assets/people/<photo>, or initials when blank), linked name, institution."""
     if f.get("photo"):
-        pic = f'<img class="photo" src="assets/people/{html.escape(f["photo"])}" alt="{html.escape(f["name"])}">'
+        pic = (f'<img class="photo" src="assets/people/{html.escape(f["photo"])}" alt="{html.escape(f["name"])}" '
+               f'width="480" height="480" loading="lazy">')
     else:
         initials = "".join(w[0] for w in f["name"].split()[:2]).upper()
         pic = f'<div class="avatar">{initials}</div>'
+    if f["website"]:
+        pic = (f'<a class="photo-link" href="{html.escape(f["website"])}" target="_blank" rel="noopener" '
+               f'aria-label="{html.escape(f["name"])}\'s website">{pic}</a>')
     return (
         '          <div class="person-card fellow">\n'
         f"            {pic}\n"

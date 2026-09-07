@@ -289,8 +289,18 @@ a { color: var(--purple); }
 
 .person-card.fellow { padding: 1.2rem 1rem; }
 .person-card.fellow img.photo, .person-card.fellow .avatar { width: 96px; height: 96px; }
-.person-card.fellow h3 a { color: var(--navy); text-decoration: none; }
-.person-card.fellow h3 a:hover { color: var(--purple); }
+.person-card.fellow h3 a.site-link {
+  color: var(--purple);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+.person-card.fellow h3 a.site-link .ext { font-size: 0.7em; margin-left: 0.3em; vertical-align: 0.15em; }
+.person-card.fellow h3 a.site-link:hover { color: var(--navy); }
+.person-card .photo-link { display: block; width: fit-content; margin: 0 auto; border-radius: 50%; }
+.person-card .photo-link img.photo { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.person-card .photo-link:hover img.photo { transform: scale(1.04); box-shadow: 0 0 0 3px var(--purple-soft), 0 0 0 5px var(--purple); }
+.person-card .visit { font-size: 0.8rem; margin-top: 0.4rem; }
 
 .person-card h3 { margin: 0 0 0.2rem; }
 .person-card p { margin: 0; font-size: 0.92rem; }

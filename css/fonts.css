@@ -1,0 +1,5 @@
+/* Self-hosted fonts (latin subset), no runtime dependency on Google Fonts.
+   Inter is a variable font covering weights 400-600; Poppins ships as two static weights. */
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap; src: url('../assets/fonts/inter.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('../assets/fonts/poppins-600.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('../assets/fonts/poppins-700.woff2') format('woff2'); }
