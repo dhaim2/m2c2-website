@@ -6,7 +6,7 @@ set -e
 cd "$(dirname "$0")"
 python3 build.py >/dev/null
 rm -rf dist && mkdir dist
-cp index.html workshops.html network.html 404.html robots.txt .nojekyll dist/
+cp index.html workshops.html network.html 404.html robots.txt .nojekyll CNAME dist/
 cp -R css js assets programs dist/
 STAMP=$(date +%Y-%m-%d)
 rm -f "m2c2-site-$STAMP.zip"
